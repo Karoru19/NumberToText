@@ -1,11 +1,11 @@
 import unittest
 from django.test import TestCase
 from number_to_text.converter.utils import (
-    extract_digits,
-    pluralize,
-    split_number_by_three_digits,
+    # extract_digits,
+    # pluralize,
+    # split_number_by_three_digits,
     number_to_words,
-    THOUSANDS,
+    # THOUSANDS,
 )
 from number_to_text.converter.forms import ConverterForm
 
@@ -13,32 +13,32 @@ from number_to_text.converter.forms import ConverterForm
 
 
 class UtilsTests(unittest.TestCase):
-    def test_extract_digits(self):
-        self.assertEqual(extract_digits(315), [5, 1, 3])
-        self.assertRaises(Exception, extract_digits)
-        with self.assertRaises(Exception):
-            extract_digits(1332)
-        with self.assertRaises(Exception):
-            extract_digits(-1)
+    # def test_extract_digits(self):
+    #     self.assertEqual(extract_digits(315), [5, 1, 3])
+    #     self.assertRaises(Exception, extract_digits)
+    #     with self.assertRaises(Exception):
+    #         extract_digits(1332)
+    #     with self.assertRaises(Exception):
+    #         extract_digits(-1)
 
-    def test_pluralize(self):
-        self.assertEqual(pluralize(1, THOUSANDS[1]), "tysiąc")
-        self.assertEqual(pluralize(64, THOUSANDS[1]), "tysiące")
-        self.assertEqual(pluralize(25, THOUSANDS[1]), "tysięcy")
-        self.assertNotEqual(pluralize(111, THOUSANDS[2]), "tysiące")
-        with self.assertRaises(KeyError):
-            pluralize(111, THOUSANDS[3])
-        with self.assertRaises(Exception):
-            pluralize("111", THOUSANDS[1])
-            pluralize(None, THOUSANDS[1])
-            pluralize(111, None)
+    # def test_pluralize(self):
+    #     self.assertEqual(pluralize(1, THOUSANDS[1]), "tysiąc")
+    #     self.assertEqual(pluralize(64, THOUSANDS[1]), "tysiące")
+    #     self.assertEqual(pluralize(25, THOUSANDS[1]), "tysięcy")
+    #     self.assertNotEqual(pluralize(111, THOUSANDS[2]), "tysiące")
+    #     with self.assertRaises(KeyError):
+    #         pluralize(111, THOUSANDS[3])
+    #     with self.assertRaises(Exception):
+    #         pluralize("111", THOUSANDS[1])
+    #         pluralize(None, THOUSANDS[1])
+    #         pluralize(111, None)
 
-    def test_split_number_by_three_digits(self):
-        self.assertEqual(split_number_by_three_digits(123456), [123, 456])
-        self.assertNotEqual(split_number_by_three_digits(123456), [456, 123])
-        with self.assertRaises(Exception):
-            split_number_by_three_digits("123456")
-            split_number_by_three_digits(-1)
+    # def test_split_number_by_three_digits(self):
+    #     self.assertEqual(split_number_by_three_digits(123456), [123, 456])
+    #     self.assertNotEqual(split_number_by_three_digits(123456), [456, 123])
+    #     with self.assertRaises(Exception):
+    #         split_number_by_three_digits("123456")
+    #         split_number_by_three_digits(-1)
 
     def test_number_to_words(self):
         self.assertEqual(number_to_words(123), "sto dwadzieścia trzy")
