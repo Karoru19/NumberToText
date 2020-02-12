@@ -5,7 +5,7 @@ black==19.10b0
 Click==7.0
 coverage==4.5.4
 decorator==4.4.1
-Django==2.2.7
+Django==2.2.10
 django-material==1.6.0
 docopt==0.6.2
 entrypoints==0.3
